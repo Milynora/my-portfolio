@@ -1,0 +1,242 @@
+:root {
+  --main: #0b132b;
+  --soft: #1c2541;
+  --accent: #5bc0be;
+  --text: #f1f1f1;
+  --btn-hover: #3a86ff;
+}
+
+body {
+  background: linear-gradient(135deg, #0b132b, #1c2541);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* FLOATING SHAPES */
+.floating-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: float 20s infinite alternate;
+  z-index: -1;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  top: 10%;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 250px;
+  height: 250px;
+  background: #6fffe9;
+  bottom: 10%;
+  right: -100px;
+}
+
+.shape-3 {
+  width: 200px;
+  height: 200px;
+  background: #3a86ff;
+  top: 50%;
+  right: 30%;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-80px); }
+}
+
+/* NAVBAR */
+.glass-nav {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  color: white !important;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--accent) !important;
+  opacity: 1;
+}
+
+.navbar-brand {
+  color: var(--accent) !important;
+}
+
+/* HERO */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+}
+
+.hero-title span {
+  color: var(--accent);
+  border-right: 4px solid var(--accent);
+  padding-right: 8px;
+}
+
+.hero-subtitle {
+  opacity: 0.8;
+  font-size: 1.5rem;
+}
+
+/* HERO BUTTONS */
+.hero-btn.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  font-size: 1.2rem;
+  padding: 12px 28px;
+  transition: 0.3s;
+}
+
+.hero-btn.btn-primary:hover {
+  background-color: #49a9a4;
+  border-color: #49a9a4;
+  transform: scale(1.1);
+}
+
+/* Contact Me button — SAME hover, NO color change */
+.hero-btn.btn-outline-light {
+  font-size: 1.2rem;
+  padding: 12px 28px;
+  transition: 0.3s;
+}
+
+.hero-btn.btn-outline-light:hover {
+  transform: scale(1.1);
+}
+
+/* SECTIONS */
+.section-padding {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* About section text spacing & alignment */
+.about-text {
+  margin-left: 40px;     /* actual column separation */
+  text-align: justify;
+}
+
+.img-glass {
+  padding: 10px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  border: 6px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.img-glass::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    var(--accent),
+    var(--accent),
+    var(--accent)
+  );
+  transition: all 0.7s;
+  opacity: 0.4;
+  z-index: 0;
+  transform: rotate(45deg);
+}
+
+.img-glass img {
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
+}
+
+.img-glass:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.img-glass:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--accent);
+}
+
+/* SKILLS */
+.skill-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+  transition: 0.4s;
+  border: 2px solid var(--accent);
+}
+
+.skill-card i {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.skill-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  background: rgba(91,192,190,0.3);
+  box-shadow: 0 15px 30px var(--accent);
+}
+
+/* PROJECTS */
+.project-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: 0.4s;
+  border: 2px solid var(--accent);
+}
+
+.project-hover:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px var(--accent);
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+  background: rgba(0,0,0,0.4);
+  padding: 30px 0;
+}
